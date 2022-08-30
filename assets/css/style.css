@@ -300,6 +300,7 @@ input {
 .city {
     width: 100%;
     padding: 10px 0;
+    color: #fff;
     text-align: center;
     text-transform: uppercase;
 }
@@ -322,7 +323,12 @@ input {
 h2 {
     width: 100%;
     padding: 10px 0;
+    color: #fff;
     text-transform: capitalize;
+}
+
+input:active {
+    background-color: transparent;
 }
 
 
