@@ -219,7 +219,7 @@ li {
 }
 
 body {
-    background: url('../images/cloudy.jpg') center no-repeat;
+    background: url('../images/weather.jpg') center no-repeat;
     background-size: cover;
 }
 
@@ -301,34 +301,22 @@ input {
     width: 100%;
     padding: 10px 0;
     color: #fff;
+    font-size: 42px;
+    font-weight: 900;
     text-align: center;
     text-transform: uppercase;
+    /* text-indent: -9999px; */
 }
 
-.weather-display {
-    width: 60%;
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.weather-details {
-    display: flex;
-}
-
-.weather-details span {
-    flex-basis: 50%;
-    display: block;
-    text-align: center;
-}
-
-h2 {
+.information {
     width: 100%;
-    padding: 10px 0;
-    color: #fff;
-    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-input:active {
-    background-color: transparent;
+.info {
+    width: 100%;
 }
 
 
