@@ -2,8 +2,7 @@
 
 */
 //variables for  local storage
-const loginForm = document.querySelector("form[name=login");
-const err = document.querySelectorAll(".err");
+const loginForm = document.querySelector("form[name=login]");
 const logout = document.querySelector(".btn-logout");
 const indexBody = document.querySelector(".weather-image");
 let usernameField = document.querySelector(".user");
@@ -11,40 +10,42 @@ const cityName = document.querySelector(".city");
 const figure = document.querySelector(".image");
 //variables for api
 let searchForm = document.querySelector("form[name=search]");
-let searchField = document.querySelector(".city-input input");
 const minTemperature = document.querySelector(".min");
 const maxTemperature = document.querySelector(".max");
 const weather = document.querySelector(".weather");
 
+function showError(errorField) {
+    errorField.innerHTML = "This is required fields";
+    errorField.style.display = "block";
+}
+
+function validate() {
+    const inputField = document.querySelectorAll(".input-field");
+    let uname, pass, valid = true;
+    uname = inputField[0].children[0].value.trim();
+    pass = inputField[1].children[0].value.trim();
+    if (uname == "") {
+        showError(inputField[0].children[1]);
+    }
+    if (pass == "") {
+        showError(inputField[1].children[1]);
+    }
+    if (pass != "admin" && uname != "admin") {
+        valid = false;
+    }
+    if (valid) {
+        localStorage.setItem("uname", uname);
+        location.href = "index.html";
+    } else {
+        alert("Invalid Credentials");
+    }
+}
 
 if (loginForm) {
     document.onload = checkUser();
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        let valid = true;
-        uname = document.forms["login"]["uname"].value.trim();
-        let pass = document.forms["login"]["pass"].value.trim();
-        err[0].style.display = "none";
-        err[1].style.display = "none";
-        if (uname == "") {
-            valid = false;
-            err[0].innerHTML = "Enter username";
-            err[0].style.display = "block";
-        }
-        if (pass == "") {
-            valid = false;
-            err[1].innerHTML = "Enter password";
-            err[1].style.display = "block";
-        }
-        if (pass != "admin" && uname != "admin") {
-            valid = false;
-        }
-        if (valid) {
-            localStorage.setItem("uname", uname);
-            location.href = "index.html";
-        } else {
-            alert("Invalid Credentials");
-        }
+        validate();
     });
 }
 
@@ -68,8 +69,6 @@ function checkUser() {
         alert("welcome back:" + localStorage.getItem("uname"));
     }
 }
-
-
 
 if (searchForm) {
     searchForm.addEventListener('submit', (e) => {
@@ -95,8 +94,8 @@ function showWeather(data) {
     maxTemperature.children[0].innerHTML = data.main.temp_max;
     weather.innerHTML = data.weather[0].description;
     figure.children[0].src = " http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
-    cityName.style.display = "block";
     weather.style.display = "flex";
+    cityName.style.display = "block";
     minTemperature.style.display = "block";
     maxTemperature.style.display = "block";
     figure.style.display = "block";
