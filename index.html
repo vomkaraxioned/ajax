@@ -19,12 +19,14 @@
     <link rel="stylesheet" media="screen" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="weather-image">
     <!--container start-->
     <div class="container">
         <!--header section start-->
         <header>
-
+            <div class="wrapper">
+                <a href="#FIXME" title="Logout" class="btn btn-logout">Logout</a>
+            </div>
         </header>
         <!--header section start-->
         <!--main section start-->
@@ -33,8 +35,8 @@
                 <div class="form">
                     <form action="#FIXME" method="GET" name="search">
                         <div class="city-input">
-                            <input type="text" name="city-name" placeholder="enter city name">
-                            <span>search</span>
+                            <div class="city-name"><input type="text" name="city-name" placeholder="enter city name"></div>
+                            <div class="btn"><input type="submit" name="submit" value="Search" /></div>
                         </div>
                     </form>
                 </div>
@@ -43,11 +45,11 @@
                     <h1 class="city">abc</h1>
                     <ul class="information">
                         <li class="info">
-                            <h2 class="min"><span>a</span><sup>0</sup>C</h2>
-                            <h2 class="max"><span>b</span><sup>0</sup>C</h2>
+                            <h2 class="min">Min:<span>a</span><sup>0</sup>C</h2>
+                            <h2 class="max">Max:<span>b</span><sup>0</sup>C</h2>
                         </li>
                         <li class="info">
-                            <span class="icon">icon</span>
+                            <figure class="image"><img src="#FIXME" alt="icon"></figure>
                             <h2 class="weather">a</h2>
                         </li>
                     </ul>
