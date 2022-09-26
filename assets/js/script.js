@@ -8,6 +8,7 @@ const logout = document.querySelector(".btn-logout");
 const indexBody = document.querySelector(".weather-image");
 let usernameField = document.querySelector(".user");
 const cityName = document.querySelector(".city");
+const figure = document.querySelector(".image");
 //variables for api
 let searchForm = document.querySelector("form[name=search]");
 let searchField = document.querySelector(".city-input input");
@@ -82,14 +83,13 @@ if (searchForm) {
             minTemperature.style.display = "none";
             maxTemperature.style.display = "none";
             weather.style.display = "none";
+            figure.style.display = "none";
             indexBody.style.background = "url(assets/images/weather1.jpg)";
         });
     });
 }
 
 function showWeather(data) {
-    console.log(data);
-    const figure = document.querySelector(".image");
     cityName.innerHTML = data.name;
     minTemperature.children[0].innerHTML = data.main.temp_min;
     maxTemperature.children[0].innerHTML = data.main.temp_max;
