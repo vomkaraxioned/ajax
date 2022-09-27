@@ -100,7 +100,7 @@ function showWeather(data) {
     minTemperature.style.display = "block";
     maxTemperature.style.display = "block";
     figure.style.display = "block";
-    if (data.main.temp_max >= 30) {
+    if (data.main.temp >= 30) {
         indexBody.classList.add("sunny");
     } else {
         indexBody.classList.add("cloudy");
