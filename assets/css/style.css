@@ -278,6 +278,10 @@ body {
     align-items: center;
 }
 
+.weather-display {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 form {
     width: 100%;
 }
