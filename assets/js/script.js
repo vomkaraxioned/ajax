@@ -83,7 +83,7 @@ if (searchForm) {
             maxTemperature.style.display = "none";
             weather.style.display = "none";
             figure.style.display = "none";
-            indexBody.style.background = "url(assets/images/weather1.jpg)";
+            indexBody.classList.add("invalid");
         });
     });
 }
@@ -100,8 +100,8 @@ function showWeather(data) {
     maxTemperature.style.display = "block";
     figure.style.display = "block";
     if (data.main.temp_max >= 30) {
-        indexBody.style.background = "url(assets/images/sunny.jpg)";
+        indexBody.classList.add("sunny");
     } else {
-        indexBody.style.background = "url(assets/images/cloudy.jpg)";
+        indexBody.classList.add("cloudy");
     }
 }

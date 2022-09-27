@@ -219,7 +219,28 @@ li {
 }
 
 body {
+    height: 100vh;
     background: url('../images/weather1.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.weather-image {
+    background: url('../images/weather1.jpg')center no-repeat;
+    background-size: cover;
+}
+
+.invalid {
+    background: url('../images/weather1.jpg')center no-repeat;
+    background-size: cover;
+}
+
+.sunny {
+    background: url('../images/sunny.jpg')center no-repeat;
+    background-size: cover;
+}
+
+.cloudy {
+    background: url('../images/cloudy.jpg')center no-repeat;
     background-size: cover;
 }
 
