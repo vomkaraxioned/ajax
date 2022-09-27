@@ -89,7 +89,8 @@ if (searchForm) {
 }
 
 function showWeather(data) {
-    cityName.innerHTML = data.name;
+    indexBody.className = "";
+    cityName.innerHTML = data.name + "\t" + data.main.temp + "<sup>0</sup>c";
     minTemperature.children[0].innerHTML = data.main.temp_min;
     maxTemperature.children[0].innerHTML = data.main.temp_max;
     weather.innerHTML = data.weather[0].description;
