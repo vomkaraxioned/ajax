@@ -219,7 +219,7 @@ li {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background: url('../images/weather1.jpg') center no-repeat;
     background-size: cover;
 }
@@ -229,10 +229,6 @@ body {
     background-size: cover;
 }
 
-.invalid {
-    background: url('../images/weather1.jpg')center no-repeat;
-    background-size: cover;
-}
 
 .sunny {
     background: url('../images/sunny.jpg')center no-repeat;
@@ -245,28 +241,7 @@ body {
 }
 
 
-/*=================================
-    Header styling starts here
-=================================*/
-
-
-/*=================================
-    Header styling ends here
-=================================*/
-
-
-/*=================================
-    main styling starts here
-=================================*/
-
-
-/*=================================
-    main styling ends here
-=================================*/
-
-.login-form form {
-    background-color: rgba(0, 0, 0, 0.7);
-}
+.login-form form { background-color: rgba(0, 0, 0, 0.7);}
 
 .form,
 .weather-display {
@@ -279,12 +254,14 @@ body {
 }
 
 .weather-display {
+    display: none;
     background-color: rgba(0, 0, 0, 0.7);
 }
-
-form {
-    width: 100%;
+.weather-active {
+    display: flex;
 }
+
+form {width: 100%;}
 
 .city-input {
     width: 50%;
@@ -313,13 +290,9 @@ form {
     background-color: transparent;
 }
 
-.city-input input[type=submit] {
-    width: 100%;
-}
+.city-input input[type=submit] { width: 100%;}
 
-.city-name {
-    flex-basis: 80%;
-}
+.city-name { flex-basis: 80%;}
 
 .city-input .btn {
     flex-basis: 20%;
@@ -334,7 +307,6 @@ form {
 .city {
     width: 100%;
     padding: 10px 0;
-    display: none;
     color: #fff;
     font-size: 42px;
     font-weight: 900;
@@ -356,18 +328,13 @@ form {
     text-align: center;
 }
 
-.info:nth-child(2) {
-    display: flex;
-}
+.info:nth-child(2) {display: flex;}
 
-.image {
-    flex-basis: 20%;
-    display: none;
-}
+.image {  flex-basis: 20%;}
 
 .weather {
     flex-basis: 80%;
-    display: none;
+    display: flex;
     text-transform: capitalize;
     justify-content: center;
     align-items: center;
@@ -396,9 +363,7 @@ form {
     flex-direction: column;
 }
 
-.input-field:last-child {
-    justify-content: center;
-}
+.input-field:last-child { justify-content: center;}
 
 .login-form input[type=text],
 .login-form input[type=password] {
@@ -412,10 +377,10 @@ form {
 .login-btn {
     padding: 10px 8%;
     margin: 0 auto;
-    background-color: #3fff00;
     border: 1px solid #3fff00;
     border-radius: 5px;
     outline: none;
+    background-color: #3fff00;
     color: #fff;
     font-weight: 900;
 }
@@ -426,21 +391,14 @@ form {
 }
 
 .err {
-    display: none;
     color: #f00;
     font-size: 12px;
     text-transform: capitalize;
 }
 
-.user {
-    display: none;
-}
 
 .min,
-.max {
-    padding: 10px 0;
-    display: none;
-}
+.max { padding: 10px 0;}
 
 header .wrapper {
     display: flex;
@@ -449,7 +407,9 @@ header .wrapper {
 
 .btn-logout {
     padding: 7px 2%;
+    margin:10px 5% 0 0;
     border: 1px solid #f00;
+    border-radius: 5px;
     background-color: #f00;
     color: #fff;
     text-align: center;
@@ -477,9 +437,8 @@ footer styling ends here
 /*media query for 995px starts here*/
 
 @media only screen and (max-width: 995px) {
-    .login-form {
-        width: 50%;
-    }
+    .login-form { width: 50%;}
+    .city-input { width: 80%;}
 }
 
 
@@ -490,31 +449,17 @@ footer styling ends here
         padding: 7px 5%;
         font-size: 16px;
     }
-    .city-name {
-        flex-basis: 70%;
-    }
-    .city-input .btn {
-        flex-basis: 30%;
-    }
-    .image {
-        flex-basis: 60%;
-    }
-    .information {
-        flex-direction: column;
-    }
+    .city-name { flex-basis: 70%;}
+    .city-input .btn { flex-basis: 30%;}
+    .image { flex-basis: 60%;}
+    .information { flex-direction: column;}
 }
 
 
 /*media query for 768px starts here*/
 
 @media only screen and (max-width: 425px) {
-    .city-input {
-        width: 95%;
-    }
-    .login-form {
-        width: 80%;
-    }
-    .info {
-        width: 80%;
-    }
+    .city-input { width: 95%;}
+    .login-form { width: 80%;}
+    .info { width: 80%;}
 }
