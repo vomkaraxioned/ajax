@@ -75,7 +75,7 @@ if (searchForm) {
         e.preventDefault();
         let url, key;
         key = document.forms['search']['city-name'].value;
-        url = "https://api.openweathermap.org/data/2.5/weather?q=" + key + "&appid=884256960b2dca1d89e7d4e8e6e894cd&units=metric";
+        url = "https://api.openweathermap.org/data/2.5/weather?q=" + key + "&appid=884256960b2dca1d89e7d4e8e6e894cd&units=metric&lang=hi";
         fetch(url).then((response) => response.json()).then(data => showWeather(data)).catch((e) => {
             cityName.innerHTML = e.msg;
             cityName.style.display = "block";
