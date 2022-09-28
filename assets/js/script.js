@@ -18,7 +18,6 @@ function showError(errorField) {
 function removeErrBox(inputField){
     let i;
   for(i=0;i<inputField.length-1;i++){
-      console.log(inputField[i].children[1])
       if(inputField[i].children[1]){
         inputField[i].removeChild(inputField[i].children[1]);
       }
