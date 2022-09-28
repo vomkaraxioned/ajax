@@ -539,29 +539,8 @@ header .wrapper {
 /*media query for 768px starts here*/
 
 @media only screen and (max-width: 425px) {
-<<<<<<< HEAD
-    .city-input {
-        width: 95%;
-    }
-    .city {
-        font-size: 21px;
-    }
-    .login-form {
-        width: 80%;
-    }
-
-    .info {
-        width: 80%;
-    }
-=======
     .city-input { width: 95%;}
     .login-form { width: 80%;}
     .info { width: 80%;}
-<<<<<<< HEAD
-    .city { font-size: 21px;}
->>>>>>> feature-js
+    .city{ font-size: 21px;}
 }
-=======
-    .city { font-size:21px}
-}
->>>>>>> 37c20536973df38b696b99f7d75dcc7fdfa2ac10
