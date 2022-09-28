@@ -104,31 +104,46 @@ if (searchForm) {
 
 function showWeather(data) {
    indexBody.className="";
-   weather.innerHTML = "";
+   weather.innerHTML="";
    const heading1 = document.createElement("h1"),
    heading2 = document.createElement("h2"),
    ul = document.createElement("ul"),
     li = document.createElement("li"),
+   span = document.createElement("span"),
     figure = document.createElement("figure"),
     img = document.createElement("img");
    heading1.classList.add("city");
+   heading2.classList.add("min");
    ul.classList.add("information");
     li.classList.add("info");
    figure.classList.add(".image");
-   heading2.classList.add("weather");
    heading1.innerHTML = data.name+" "+data.main.temp+"&degC";
    weather.appendChild(heading1);
+   span.innerHTML = data.main.temp_min+"&degC";
+   heading2.innerText = "Min:";
+   heading2.appendChild(span);
+   li.appendChild(heading2);
+   heading2.classList.remove("min");
+   heading2.classList.add("max");
+   span.innerText = data.main.temp_max+"&degC";
+   heading2.innerText = "Max:";
+   heading2.appendChild(span);
+   li.appendChild(heading2);
+   heading2.classList.remove("min");
+   ul.appendChild(li);
+   li.innerHTML = "";
    img.src = "http://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png";
     img.alt =""+data.weather[0].main+"";
     figure.appendChild(img);
     li.appendChild(figure);
+    heading2.classList.add("weather");
     heading2.innerText = data.weather[0].main;
     li.appendChild(heading2);
     ul.appendChild(li);
     weather.appendChild(ul);
    weather.classList.add("weather-active");
    if(data.main.temp>=30){
-       indexBody.classList.add("sunny")
+       indexBody.classList.add("sunny");
    }else{
        indexBody.classList.add("cloudy");
    }
