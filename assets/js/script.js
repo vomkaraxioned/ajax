@@ -147,5 +147,4 @@ function showWeather(data) {
    }else{
        indexBody.classList.add("cloudy");
    }
-
 }
