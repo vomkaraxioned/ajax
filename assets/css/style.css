@@ -539,6 +539,7 @@ header .wrapper {
 /*media query for 768px starts here*/
 
 @media only screen and (max-width: 425px) {
+<<<<<<< HEAD
     .city-input {
         width: 95%;
     }
@@ -552,4 +553,10 @@ header .wrapper {
     .info {
         width: 80%;
     }
+=======
+    .city-input { width: 95%;}
+    .login-form { width: 80%;}
+    .info { width: 80%;}
+    .city { font-size: 21px;}
+>>>>>>> feature-js
 }
