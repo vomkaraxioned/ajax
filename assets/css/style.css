@@ -542,7 +542,9 @@ header .wrapper {
     .city-input {
         width: 95%;
     }
-
+    .city {
+        font-size: 21px;
+    }
     .login-form {
         width: 80%;
     }
