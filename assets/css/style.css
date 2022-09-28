@@ -1,10 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
 @charset "utf-8";
 
 /* ==========================================================================
@@ -203,7 +196,7 @@ sub {
 
 body {
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     font-family: sans-serif;
 }
 
@@ -249,7 +242,9 @@ body {
 }
 
 
-.login-form form { background-color: rgba(0, 0, 0, 0.7);}
+.login-form form {
+    background-color: rgba(0, 0, 0, 0.7);
+}
 
 .form,
 .weather-display {
@@ -261,24 +256,27 @@ body {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .weather-display {
     display: none;
     background-color: rgba(0, 0, 0, 0.7);
 }
+
 .weather-active {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-form {width: 100%;}
+form {
+    width: 100%;
+}
 
 .city-input {
     width: 50%;
@@ -290,8 +288,8 @@ form {width: 100%;}
     display: flex;
     background-color: #fff;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .city-input input {
@@ -311,13 +309,18 @@ form {width: 100%;}
     background-color: transparent;
 }
 
-.city-input input[type=submit] { width: 100%;}
+.city-input input[type=submit] {
+    width: 100%;
+}
 
-.city-name { -ms-flex-preferred-size: 80%; flex-basis: 80%;}
+.city-name {
+    -ms-flex-preferred-size: 80%;
+    flex-basis: 80%;
+}
 
 .city-input .btn {
     -ms-flex-preferred-size: 20%;
-        flex-basis: 20%;
+    flex-basis: 20%;
     border-radius: 0 50px 50px 0;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -344,11 +347,11 @@ form {width: 100%;}
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .info {
@@ -358,23 +361,30 @@ form {width: 100%;}
     text-align: center;
 }
 
-.info:nth-child(2) {display: -webkit-box;display: -ms-flexbox;display: flex;}
+.info:nth-child(2) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
 
-.image {  -ms-flex-preferred-size: 20%;  flex-basis: 20%;}
+.image {
+    -ms-flex-preferred-size: 20%;
+    flex-basis: 20%;
+}
 
 .weather {
     -ms-flex-preferred-size: 80%;
-        flex-basis: 80%;
+    flex-basis: 80%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     text-transform: capitalize;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .login-form {
@@ -395,8 +405,8 @@ form {width: 100%;}
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 .input-field {
@@ -406,11 +416,15 @@ form {width: 100%;}
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
-.input-field:last-child { -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;}
+.input-field:last-child {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
 
 .login-form input[type=text],
 .login-form input[type=password] {
@@ -445,20 +459,22 @@ form {width: 100%;}
 
 
 .min,
-.max { padding: 10px 0;}
+.max {
+    padding: 10px 0;
+}
 
 header .wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: right;
-        -ms-flex-pack: right;
-            justify-content: right;
+    -ms-flex-pack: right;
+    justify-content: right;
 }
 
 .btn-logout {
     padding: 7px 2%;
-    margin:10px 5% 0 0;
+    margin: 10px 5% 0 0;
     border: 1px solid #f00;
     border-radius: 5px;
     background-color: #f00;
@@ -472,24 +488,19 @@ header .wrapper {
 }
 
 
-/*=================================
-footer styling starts here
-=================================*/
-
-
-/*=================================
-footer styling ends here
-=================================*/
-
-
 /*media query starts*/
 
 
 /*media query for 995px starts here*/
 
 @media only screen and (max-width: 995px) {
-    .login-form { width: 50%;}
-    .city-input { width: 80%;}
+    .login-form {
+        width: 50%;
+    }
+
+    .city-input {
+        width: 80%;
+    }
 }
 
 
@@ -500,17 +511,43 @@ footer styling ends here
         padding: 7px 5%;
         font-size: 16px;
     }
-    .city-name { -ms-flex-preferred-size: 70%; flex-basis: 70%;}
-    .city-input .btn { -ms-flex-preferred-size: 30%; flex-basis: 30%;}
-    .image { -ms-flex-preferred-size: 60%; flex-basis: 60%;}
-    .information { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;}
+
+    .city-name {
+        -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+    }
+
+    .city-input .btn {
+        -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+    }
+
+    .image {
+        -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
+    }
+
+    .information {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
 }
 
 
 /*media query for 768px starts here*/
 
 @media only screen and (max-width: 425px) {
-    .city-input { width: 95%;}
-    .login-form { width: 80%;}
-    .info { width: 80%;}
+    .city-input {
+        width: 95%;
+    }
+
+    .login-form {
+        width: 80%;
+    }
+
+    .info {
+        width: 80%;
+    }
 }
