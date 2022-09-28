@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @charset "utf-8";
 
 /* ==========================================================================
@@ -195,7 +202,8 @@ sub {
 /*for all*/
 
 body {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     font-family: sans-serif;
 }
 
@@ -248,9 +256,16 @@ body {
     width: 80%;
     padding: 80px 0;
     margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .weather-display {
@@ -258,6 +273,8 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
 }
 .weather-active {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -268,9 +285,13 @@ form {width: 100%;}
     border: 1px solid #777;
     border-radius: 50px;
     margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background-color: #fff;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .city-input input {
@@ -292,11 +313,14 @@ form {width: 100%;}
 
 .city-input input[type=submit] { width: 100%;}
 
-.city-name { flex-basis: 80%;}
+.city-name { -ms-flex-preferred-size: 80%; flex-basis: 80%;}
 
 .city-input .btn {
-    flex-basis: 20%;
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
     border-radius: 0 50px 50px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background-color: #e67339;
     font-family: 'FontAwesome';
@@ -316,9 +340,15 @@ form {width: 100%;}
 
 .information {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .info {
@@ -328,16 +358,23 @@ form {width: 100%;}
     text-align: center;
 }
 
-.info:nth-child(2) {display: flex;}
+.info:nth-child(2) {display: -webkit-box;display: -ms-flexbox;display: flex;}
 
-.image {  flex-basis: 20%;}
+.image {  -ms-flex-preferred-size: 20%;  flex-basis: 20%;}
 
 .weather {
-    flex-basis: 80%;
+    -ms-flex-preferred-size: 80%;
+        flex-basis: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     text-transform: capitalize;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .login-form {
@@ -353,17 +390,27 @@ form {width: 100%;}
 }
 
 .input-fields {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .input-field {
     margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
-.input-field:last-child { justify-content: center;}
+.input-field:last-child { -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;}
 
 .login-form input[type=text],
 .login-form input[type=password] {
@@ -401,8 +448,12 @@ form {width: 100%;}
 .max { padding: 10px 0;}
 
 header .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: right;
+    -webkit-box-pack: right;
+        -ms-flex-pack: right;
+            justify-content: right;
 }
 
 .btn-logout {
@@ -449,10 +500,10 @@ footer styling ends here
         padding: 7px 5%;
         font-size: 16px;
     }
-    .city-name { flex-basis: 70%;}
-    .city-input .btn { flex-basis: 30%;}
-    .image { flex-basis: 60%;}
-    .information { flex-direction: column;}
+    .city-name { -ms-flex-preferred-size: 70%; flex-basis: 70%;}
+    .city-input .btn { -ms-flex-preferred-size: 30%; flex-basis: 30%;}
+    .image { -ms-flex-preferred-size: 60%; flex-basis: 60%;}
+    .information { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;}
 }
 
 
