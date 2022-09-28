@@ -2,35 +2,41 @@
 
 */
 //variables for  local storage
-const loginForm = document.querySelector("form[name=login]");
-const logout = document.querySelector(".btn-logout");
-const indexBody = document.querySelector(".weather-image");
-let usernameField = document.querySelector(".user");
-const cityName = document.querySelector(".city");
-const figure = document.querySelector(".image");
+const loginForm = document.querySelector("form[name=login]"),
+ logout = document.querySelector(".btn-logout"),
+ weather = document.querySelector(".weather-display"),
+ indexBody = document.querySelector(".weather-image");
 //variables for api
 let searchForm = document.querySelector("form[name=search]");
-const minTemperature = document.querySelector(".min");
-const maxTemperature = document.querySelector(".max");
-const weather = document.querySelector(".weather");
 
 function showError(errorField) {
-    errorField.innerHTML = "This is required fields";
-    errorField.style.display = "block";
+    const errBox = document.createElement("span");
+    errBox.classList.add("err");
+    errBox.innerText = "This is required field";
+    errorField.appendChild(errBox);
 }
-
+function removeErrBox(inputField){
+    let i;
+  for(i=0;i<inputField.length-1;i++){
+      console.log(inputField[i].children[1])
+      if(inputField[i].children[1]){
+        inputField[i].removeChild(inputField[i].children[1]);
+      }
+  }
+}
 function validate() {
     const inputField = document.querySelectorAll(".input-field");
+    removeErrBox(inputField);
     let uname, pass, valid = true;
     uname = inputField[0].children[0].value.trim();
     pass = inputField[1].children[0].value.trim();
     if (uname == "") {
-        showError(inputField[0].children[1]);
+        showError(inputField[0]);
     }
     if (pass == "") {
-        showError(inputField[1].children[1]);
+        showError(inputField[1]);
     }
-    if (pass != "admin" && uname != "admin") {
+    if (pass != "admin" || uname != "admin") {
         valid = false;
     }
     if (valid) {
@@ -76,33 +82,70 @@ if (searchForm) {
         let url, key;
         key = document.forms['search']['city-name'].value;
         url = "https://api.openweathermap.org/data/2.5/weather?q=" + key + "&appid=884256960b2dca1d89e7d4e8e6e894cd&units=metric";
-        fetch(url).then((response) => response.json()).then(data => showWeather(data)).catch((e) => {
-            cityName.innerHTML = e.msg;
-            cityName.style.display = "block";
-            minTemperature.style.display = "none";
-            maxTemperature.style.display = "none";
-            weather.style.display = "none";
-            figure.style.display = "none";
-            indexBody.classList.add("invalid");
-        });
+        const xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function (){
+          try{
+            if(this.readyState == 4 && this.status == 200){
+                this.responseType = "Json";
+                 showWeather(JSON.parse(this.response));
+            }else{
+                throw this.status+" "+this.statusText;
+            }
+          }catch(e){
+            indexBody.className="";
+            weather.innerHTML = `<h1 class=\"city\">${e}</h1>`;
+            weather.classList.add("weather-active");
+            indexBody.classList.add("weather-image");
+          }
+        };
+        xmlHttp.open('GET',url);
+        xmlHttp.send();
     });
 }
 
 function showWeather(data) {
-    indexBody.className = "";
-    cityName.innerHTML = data.name + "\t" + data.main.temp + "<sup>0</sup>c";
-    minTemperature.children[0].innerHTML = data.main.temp_min;
-    maxTemperature.children[0].innerHTML = data.main.temp_max;
-    weather.innerHTML = data.weather[0].description;
-    figure.children[0].src = " http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
-    weather.style.display = "flex";
-    cityName.style.display = "block";
-    minTemperature.style.display = "block";
-    maxTemperature.style.display = "block";
-    figure.style.display = "block";
-    if (data.main.temp >= 30) {
-        indexBody.classList.add("sunny");
-    } else {
-        indexBody.classList.add("cloudy");
-    }
+   indexBody.className="";
+   const heading1 = document.createElement("h1"),
+   heading2 = document.createElement("h2"),
+   ul = document.createElement("ul"),
+    li = document.createElement("li"),
+   span = document.createElement("span"),
+    figure = document.createElement("figure"),
+    img = document.createElement("img");
+   heading1.classList.add("city");
+   heading2.classList.add("min");
+   ul.classList.add("information");
+    li.classList.add("info");
+   figure.classList.add(".image");
+   heading1.innerText = data.name+" "+data.main.temp+"&degC";
+   weather.appendChild(heading1);
+   span.innerText = data.main.temp_min+"&degC";
+   heading2.innerText = "Min:";
+   heading2.appendChild(span);
+   li.appendChild(heading2);
+   heading2.classList.remove("min");
+   heading2.classList.add("max");
+   span.innerText = data.main.temp_max+"&degC";
+   heading2.innerText = "Max:";
+   heading2.appendChild(span);
+   li.appendChild(heading2);
+   heading2.classList.remove("min");
+   ul.appendChild(li);
+   li.innerHTML = "";
+   img.src = "http://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png";
+    img.alt =""+data.weather[0].main+"";
+    figure.appendChild(img);
+    li.appendChild(figure);
+    heading2.classList.add("weather");
+    heading2.innerText = data.weather[0].main;
+    li.appendChild(heading2);
+    ul.appendChild(li);
+    weather.appendChild(ul);
+   weather.classList.add("weather-active");
+   if(data.main.temp>=30){
+       indexBody.classList.add("sunny")
+   }else{
+       indexBody.classList.add("cloudy");
+   }
+
 }
